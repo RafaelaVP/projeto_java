@@ -23,6 +23,10 @@ public class Aluno {
         return nota;
     }
 
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
+
     @Override
     public String toString() {
         return "Aluno{" +

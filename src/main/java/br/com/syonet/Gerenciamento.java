@@ -7,5 +7,7 @@ public interface Gerenciamento {
     void removerAluno(String matricula);
     List<Aluno> listarAlunos();
     double calcularMedia();
+    Aluno buscarAluno(String matricula);
+    void atualizarNota(String matricula, double novaNota);
 }
 

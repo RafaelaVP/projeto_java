@@ -8,6 +8,10 @@ public class Turma implements Gerenciamento {
 
     @Override
     public void adicionarAluno(Aluno aluno) {
+        if (buscarAluno(aluno.getMatricula()) != null) {
+            System.out.println("Não é possível adicionar aluno com matrícula já existente: " + aluno.getMatricula());
+            return;
+        }
         alunos.add(aluno);
     }
 
@@ -36,5 +40,22 @@ public class Turma implements Gerenciamento {
         return somaNotas / alunos.size();
     }
 
+    @Override
+    public Aluno buscarAluno(String matricula) {
+        for (Aluno aluno : alunos) {
+            if (aluno.getMatricula().equals(matricula)) {
+                return aluno;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void atualizarNota(String matricula, double novaNota) {
+        Aluno aluno = buscarAluno(matricula);
+        if (aluno != null) {
+            aluno.setNota(novaNota);
+        }
+    }
 }
 
